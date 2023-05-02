@@ -1,0 +1,43 @@
+.tooltip {
+    position: relative;
+    &:before,
+    &:after {
+        display: block;
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+    }
+
+    &:before {
+        border-radius: 2px;
+        color: #fff;
+        bottom: 65px;
+        white-space: nowrap;
+    }
+
+    &--loading:before,
+    &--loading:after {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        transition: all 0.3s ease-in-out;
+        left: -10px;
+        bottom: 60px;
+    }
+    &--loading:before {
+        content: url('../../images/searchingTooltip.png');
+    }
+
+    &--default:before {
+        content: url('../../images/searchTooltip.png');
+    }
+    &--default:after,
+    &--default:before {
+        transform: translate3d(0, 10px, 0);
+        transition: all 0.3s ease-in-out;
+    }
+    &--default:hover:after,
+    &--default:hover:before {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
